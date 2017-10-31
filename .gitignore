@@ -1,0 +1,7 @@
+node_modules/
+www/
+*.rar
+npm-debug.log
+dist/
+.idea/
+https://github.com/kenberkeley/redux-simple-tutorial.git
