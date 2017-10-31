@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?7c95c8b39b7c9dc9afbff99e6b1a5b0a";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+		function IsPC() {
+			var userAgentInfo = navigator.userAgent;
+			var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+			var flag = true;
+			for (var v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+					flag = false;
+					break;
+				}
+			}
+			return flag;
+		}
+
+		function Match() {
+			var userAgent = navigator.userAgent,
+				rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+				rFirefox = /(firefox)\/([\w.]+)/,
+				rOpera = /(opera).+version\/([\w.]+)/,
+				rChrome = /(chrome)\/([\w.]+)/,
+				rSafari = /version\/([\w.]+).*(safari)/;
+			var browser;
+			var version;
+			var ua = userAgent.toLowerCase();
+			var match = rMsie.exec(ua);
+			if (match != null) {
+				return {
+					browser: "IE",
+					version: match[2] || "0"
+				};
+			}
+			var match = rFirefox.exec(ua);
+			if (match != null) {
+				return {
+					browser: match[1] || "",
+					version: match[2] || "0"
+				};
+			}
+			var match = rOpera.exec(ua);
+			if (match != null) {
+				return {
+					browser: match[1] || "",
+					version: match[2] || "0"
+				};
+			}
+			var match = rChrome.exec(ua);
+			if (match != null) {
+				return {
+					browser: match[1] || "",
+					version: match[2] || "0"
+				};
+			}
+			var match = rSafari.exec(ua);
+			if (match != null) {
+				return {
+					browser: match[2] || "",
+					version: match[1] || "0"
+				};
+			}
+			if (match != null) {
+				return {
+					browser: "",
+					version: "0"
+				};
+			}
+		}
+		(function initBrowserVersion() {
+			var browserMatch = Match();
+			var str = "</br></br>或者下载高级浏览器：<ul> <li><a href='http://www.baidu.com/s?wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8B%E8%BD%BD'>谷歌浏览器</a></li> <li><a href='http://www.firefox.com.cn/'>火狐浏览器</a></li> <li><a href='http://se.360.cn/'>360浏览器</a></li><li><a href='http://browser.qq.com/'>QQ浏览器</a></li></ul>";
+			if(IsPC()){
+				if (browserMatch.browser) {
+					if (browserMatch.browser == "IE" && browserMatch.version < 10) {
+						document.write("IE浏览器版本太低，请升级至IE10或IE10以上版本；"+str);
+						return false;
+					} else if (browserMatch.browser == "chrome" && 40 > browserMatch.version.substring(0, browserMatch.version.indexOf("."))) {
+						document.write("浏览器版本太低，请升级；"+str);
+						return false;
+					} else if (browserMatch.browser == "firefox" && 40 > browserMatch.version.substring(0, browserMatch.version.indexOf("."))) {
+						document.write("浏览器版本太低，请升级；"+str);
+						return false;
+					}else{
+						document.write('<h1>施工中...<h1>');
+						// window.location.href='./web_by_vue/dist/index.html';
+					}
+				}
+			}else{
+				 document.write('<h1>施工中...<h1>');
+			}
+		})()
+	</script>
+</head>
+<body>
+</body>
+</html>
