@@ -10,8 +10,15 @@
     </style>
 </head>
 <body>
-    <div class="box">
-test
-    </div>
+    <input type="text" id="input" value="http://192.168.99.83:4005/#/">
+    <button onclick="blank()">按钮</button>
+
+    <script>
+        function blank(){
+            var elm = document.getElementById('input');
+            window.location.href = elm.value
+        }
+        
+    </script>
 </body>
 </html>
