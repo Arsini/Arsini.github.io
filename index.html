@@ -1,10 +1,10 @@
 <script>
     var userAgent = navigator.userAgent
     var FLAG = userAgent.indexOf('iPhone') || userAgent.indexOf('Android')
-    if(FLAG){
-        window.location.href = origin + '/PC/index.html'
+    if(FLAG != -1){
+        window.location.href = origin + '/H5/index.html'        
     } else {
-        window.location.href = origin + '/H5/index.html'
+        window.location.href = origin + '/PC/index.html'
     }
     // function os() {
     //     var ua = navigator.userAgent,
