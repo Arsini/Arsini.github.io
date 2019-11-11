@@ -1,10 +1,22 @@
-<script>
-    var userAgent = navigator.userAgent
-    var FLAG = userAgent.indexOf('iPhone') || userAgent.indexOf('Android')
-    alert(FLAG)
-    if(FLAG != -1){
-        window.location.href = origin + '/H5/index.html'        
-    } else {
-        window.location.href = origin + '/PC/index.html'
-    }
-</script>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script>
+        var userAgent = navigator.userAgent
+        alert(userAgent)
+        var FLAG = userAgent.indexOf('iPhone') || userAgent.indexOf('Android')
+        if(FLAG != -1){
+            window.location.href = origin + '/H5/index.html'        
+        } else {
+            window.location.href = origin + '/PC/index.html'
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
