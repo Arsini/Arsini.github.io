@@ -1,6 +1,7 @@
 <script>
     var userAgent = navigator.userAgent
     var FLAG = userAgent.indexOf('iPhone') || userAgent.indexOf('Android')
+    alert(FLAG)
     if(FLAG != -1){
         window.location.href = origin + '/H5/index.html'        
     } else {
