@@ -8,8 +8,9 @@
     <script>
         var userAgent = navigator.userAgent
         alert(userAgent)
-        var FLAG = userAgent.indexOf('iPhone') || userAgent.indexOf('Android')
-        if(FLAG != -1){
+        var iPhone = userAgent.indexOf('iPhone')
+        var android = userAgent.indexOf('Android')
+        if(iPhone != -1 || android != -1){
             window.location.href = origin + '/H5/index.html'        
         } else {
             window.location.href = origin + '/PC/index.html'
