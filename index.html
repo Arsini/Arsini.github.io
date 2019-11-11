@@ -11,12 +11,16 @@
         var userAgent = navigator.userAgent
         var iPhone = userAgent.indexOf('iPhone')
         var android = userAgent.indexOf('Android')
-        if(iPhone != -1 || android != -1){
-            window.location.href = origin + '/H5/index.html'
-            window.event.returnValue = false
-        } else {
-            window.location.href = origin + '/PC/index.html'
-            window.event.returnValue = false
+        try {
+            if(iPhone != -1 || android != -1){
+                window.location.href = origin + '/H5/index.html'
+                window.event.returnValue = false
+            } else {
+                window.location.href = origin + '/PC/index.html'
+                window.event.returnValue = false
+            }
+        } catch (error) {
+            alert(error)
         }
     </script>
 </body>
