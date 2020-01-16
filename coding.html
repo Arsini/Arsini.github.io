@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script>
+        const value = [
+            [9,2] 
+        ]
+        const dataManages = []
+        const mainItemDataList = []
+        const DetailEDitemDataList = []
+        // datamId mainItemId id
+        value.map(item => {
+            //dataManages
+            const len = dataManages.length
+            if(len && dataManages[len-1].id != item[0]){
+                dataManages.push({
+                    id: item[0]
+                })
+            } else if(len === 0) {
+                dataManages.push({
+                    id: item[0]
+                })
+            }
+            //mainItemDataList
+            const len_1 = mainItemDataList.length
+            if(len_1 &&  mainItemDataList[len_1-1].id != item[1]){
+                if(item[1]){
+                    mainItemDataList.push({
+                        datamId: item[0],
+                        id: item[1],
+                    })
+                }
+            } else if(len_1 === 0 && item[1]){
+                mainItemDataList.push({
+                    datamId: item[0],
+                    id: item[1],
+                })
+            }
+            if(item.length === 3){
+                DetailEDitemDataList.push({
+                    datamId: item[0],
+                    mainItemId: item[1],
+                    id: item[2]
+                })
+            }
+        })
+
+        const send = {
+            dataManages,
+            mainItemDataList,
+            DetailEDitemDataList
+        }
+        console.log(send)
+        //还原
+        const re = []
+        send.DetailEDitemDataList.map(item => {
+            re.push([item.datamId, item.mainItemId, item.id])
+        })
+
+        send.mainItemDataList.map(val => {
+            let flag = false
+            re.map(item => {
+                if(val.datamId == item[0] && val.id == item[1]){
+                    flag = true
+                }
+            })
+            if(!flag){
+                re.push([val.datamId, val.id])
+            }
+        })
+
+        dataManages.map(val=>{
+            let flag = false
+            re.map(item=>{
+                if(item[0] == val.id){
+                    flag = true
+                }
+            })
+            if(!flag){
+                re.push([val.id])
+            }
+        })
+
+        console.log(re)
+    </script>
+</body>
+</html>
